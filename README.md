@@ -1,1 +1,1 @@
-# old-maid
+# simple old-maid card game
