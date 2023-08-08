@@ -1,9 +1,9 @@
 #ruthson
 import random
 
-
+#8====D
 class  Card():
-       def new_deck():
+    def new_deck():
         deck = []
         for suit in Card.SUITS:
             for value in Card.VALUES:
@@ -18,7 +18,7 @@ def __init__(self, value, suit):
     self.value = value
     self.suit = suit 
 
- def __repr__(self):
+def __repr__(self):
         # ♣ ♦ ♥ ♠
         if self.suit == "Clubs":
             symbol = "♣"
@@ -51,7 +51,7 @@ def next_turn(current_turn):
     if current_turn == "user":
         return "comp_1"
 
-         self.hand = hand 
+        self.hand = hand 
     elif current_turn == "comp_1":
         return "comp_2"
     elif current_turn == "comp_2":
@@ -82,34 +82,34 @@ class Card:
         for suit in Card.SUITS:
             for value in Card.VALUES:
                 if not (value == 12 and suit == "Hearts"): # Exclude one card from deck (Queen of Hearts)
-        deck.append(Card(value, suit))
+                    deck.append(Card(value, suit))
 #For each suit: For each value: If this is NOT the Queen of Hearts: Add this card to the deck
         random.shuffle(deck)
         return deck
 
 print("You got:")
 for i in range(1):
-   print(deck[i][0], "of", deck[i][1])
-   
+   print(deck [i][0], "of", deck [i][1])
+
 #Dictionary of named cards
 cards = {11: "Jack", 12: "Queen", 13: "King", 1:"Ace"}
 
 #Deal cards into hand
-def deal_cards(deck)
+def deal_cards(deck):
     hands = [[], [], [], []]
 
-  for i in range(len(deck)):
-    hands[i % 4].append(deck[i])
+    for i in range(len(deck)):
+        hands[i % 4].append(deck[i])
 
-  return hands
+    return hands
 
 deck = new_deck()
 hands = deal_cards(deck)
 
 print("Player 1:", hands[0])
-print("Player 2:", hands[1]) 
-print("Player 3:", hands[2])
-print("Player 4:", hands[3])
+print("Better Bot:", hands[1]) 
+print("Bott Frag:", hands[2])
+print("stan:", hands[3])
 
 
 
