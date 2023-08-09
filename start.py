@@ -1,13 +1,14 @@
 import random
 
-#Create deck, shuffle 
+def wait_for_player():
+    try:
+         input("\nPress enter to continue. ")
+         print()
+    except SyntaxError:
+         pass
 
- 
- def make_deck():
-    '''()->list of str
-        Returns a list of strings representing the playing deck,
-        with one queen missing.
-    '''
+
+def make_deck():
     deck=[]
     suits = ['\u2660', '\u2661', '\u2662', '\u2663']
     ranks = ['2','3','4','5','6','7','8','9','10','J','Q','K','A']
@@ -17,17 +18,13 @@ import random
     deck.remove('Q\u2663') # remove a queen as the game requires
     return deck
 
+def shuffle_deck(deck):
+    random.shuffle(deck)
+
 def deal_cards(deck):
-     '''Returns two lists representing two decks that are obtained
-     after the dealer deals the cards from the given deck.
-     The first list represents dealer's i.e. computer's deck
-     and the second represents the other player's i.e user's list.
-     '''
      dealer=[]
      other=[]
      
-
-     # 
      for i in range(0,len(deck),2):
         dealer.append(deck[i])
      for j in range (1,len(deck),2):
@@ -38,9 +35,11 @@ def deal_cards(deck):
 
 
 def remove_pairs(l):
+    
 
     no_pairs=[]
 
+    
     pairs=[]
     counter = 0
     a=sorted(l)
@@ -69,36 +68,23 @@ def remove_pairs(l):
     random.shuffle(no_pairs)
     return no_pairs
 
-def remove_pairs(l):
-
-    no_pairs=[]
+def print_deck(deck):
     
-    if len(l) < 2:
-        return l
-    l.sort()
-    l.append([''])    
-    item = 1
-    while item < len(l):
-        if l[item-1][:-1] != l[item][:-1]:
-            no_pairs.append(l[item-1])
-            item += 1
-        else:
-            item += 2
+    print(' '.join(deck))
 
-    random.shuffle(no_pairs)
-    return no_pairs
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
+def get_valid_input(n):
+     '''
+     (int)->int
+     Returns an integer given by the user that is at least 1 and at most n.
+     Keeps on asking for valid input as long as the user gives integer outside of the range [1,n]
+     
+     Precondition: n>=1
+     '''
+     
+     
+     x=int(input("Give me an integer between 1 and "+str(n)+':'))
+     while x>n or x<1:
+        x=int(input("Invalid number. Please enter integer between 1 and "+str(n)+':'))
+     
+     return x
