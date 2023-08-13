@@ -62,7 +62,7 @@ def play_old_maid():
             next_player = (i + 1) % num_players
             card_index = int(input(f"Choose a card index (0-{len(players[next_player])-1}): "))
             card = players[next_player].pop(card_index)
-            players[i].append(card)
+            players[i].append(c2ard)
 
 if __name__ == "__main__":
     play_old_maid()
